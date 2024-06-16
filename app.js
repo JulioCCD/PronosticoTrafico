@@ -20,6 +20,6 @@ app.get("/estadistica", (req,res)=>{
     res.render("estadistica")
 })
 
-app.listen(3000, (req,res)=>{
-    console.log("Corriendo en el puerto 3000")
+app.listen(8091, (req,res)=>{
+    console.log("Corriendo en el puerto 8091")
 }) 
