@@ -14,7 +14,7 @@
                 <div id="ResDia1" class="enedia open" onclick="ShowHideHorasDia(1);">
                     <h3>Hoy - 15 Junio</h3>
                     <span class="barg">
-                        <span class="rad" style="width:81.158605174353%;"></span>
+                        <span class="rad" style="width:21%;"></span>
                     </span>
                     <span class="tot">
                         Total: <strong>626</strong>
@@ -22,14 +22,17 @@
                     </span>
                     <span class="more">Horas</span>
                 </div>
+                <% conteo.forEach(function(item) { %>
                 <div id="HorasDia1" class="horashidsow">
                     <div class="horhor">
-                        <span class="hora">07:00</span>
+                        <%= item.id %>
+                        <span class="hora"><%= item.fecha_hora %></span>
                         <span class="bar">
-                            <span class="rad" style="width:39%;"></span>
+                            
+                            <span class="rad" style="width:5%;"></span>
                         </span>
                         <span class="ener">
-                            <strong>26</strong>
+                            <strong><%= item.count %></strong>
                             vhl
                         </span>
                     </div>
@@ -174,7 +177,7 @@
                         </span>
                     </div>
                     <div class="horhor">
-                        <span class="hora">22:00</span>
+                        <span class="hora">22:00</span><% }); %>
                         <span class="bar">
                             <span class="rad" style="width:30.5%;"></span>
                         </span>
@@ -182,6 +185,7 @@
                             <strong>14</strong>
                             vhl
                         </span>
+                        
                     </div>
 
                 </div>
