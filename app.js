@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require('path');
 const mysql = require('mysql');
-
 const app = express();
 
 // Configuración para el motor de plantillas EJS
@@ -12,10 +11,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuración de la conexión a la base de datos MySQL
 const connection = mysql.createConnection({
-    host: '34.151.233.27',  // Cambia a la dirección de tu servidor MySQL si es diferente
-    user: 'Pesheto',       // Nombre de usuario de MySQL
-    password: 'pesheto69',       // Contraseña de MySQL (deja en blanco si no tienes configurada una contraseña)
-    database: 'Grupo1' // Nombre de tu base de datos
+    host: 'localhost',  // Cambia a la dirección de tu servidor MySQL si es diferente
+    user: 'root',       // Nombre de usuario de MySQL
+    password: '',       // Contraseña de MySQL (deja en blanco si no tienes configurada una contraseña)
+    database: 'conteo' // Nombre de tu base de datos
 });
 
 // Conectar a la base de datos MySQL
@@ -35,17 +34,40 @@ app.get("/", (req, res) => {
             console.error('Error al realizar la consulta: ', error.stack);
             return res.status(500).send('Error al obtener los datos de la base de datos');
         }
-        // Renderizar la vista 'index' y pasar los resultados de la consulta como datos
-        res.render("estadistica", { registros: results });
-
+        // Renderizar la vista 'reco' y pasar los resultados de la consulta como datos
+        res.render("reco", { conteo: results });
     });
 });
-// Iniciar el servidor
-const PORT = process.env.PORT || 8091;
-app.listen(PORT, () => {
-    console.log('Servidor corriendo en el puerto ${PORT}');
+
+app.get("/estadistica", (req, res) => {
+    // Consulta a la base de datos
+    connection.query('SELECT * FROM pronostico', (error, results, fields) => {
+        if (error) {
+            console.error('Error al realizar la consulta: ', error.stack);
+            return res.status(500).send('Error al obtener los datos de la base de datos');
+        }
+        // Renderizar la vista 'estadistica' y pasar los resultados de la consulta como datos
+        res.render("estadistica", { conteo: results });
+    });
 });
 
+app.get("/about", (req,res)=>{
+    res.render("about")
+})
+
+app.get("/reco", (req,res)=>{
+    res.render("reco")
+})
+
+app.get("/estadistica", (req,res)=>{
+    res.render("estadistica")
+})
+
+// Iniciar el servidor
+const PORT = process.env.PORT || 8093;
+app.listen(PORT,"0.0.0.0", () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
 
 // Manejo de cierre de la conexión cuando se termina la aplicación
 process.on('SIGINT', () => {
@@ -53,12 +75,3 @@ process.on('SIGINT', () => {
     console.log('Conexión a la base de datos cerrada');
     process.exit();
 });
-
-app.get("/estadistica", (req,res)=>{
-    res.render("estadistica")
-})
-
-app.listen(8091, (req,res)=>{
-    console.log("Corriendo en el puerto 8091")
-}) 
-

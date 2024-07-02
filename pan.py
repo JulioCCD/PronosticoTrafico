@@ -20,7 +20,8 @@ df = pd.read_sql(query, engine)
 
 # Asegurarse de que los datos sean correctos
 print("Primeras filas del conjunto de datos:")
-print(df.head())
+pd.set_option('display.max_rows', None)  # Mostrar todas las filas
+print(df.head(50))  # Mostrar las primeras 50 filas del DataFrame
 
 if df.empty:
     print("El DataFrame está vacío. Verifica la consulta SQL y la base de datos.")
@@ -49,9 +50,8 @@ else:
 
     # Predecir y evaluar
     y_pred = model.predict(X_test)
-    print("Predicciones:", y_pred[:50])
+    print("Predicciones:", y_pred[:100])
     print("Precisión del modelo:", model.score(X_test, y_test))
-
 
 
 #engine = create_engine('mysql+mysqldb://Pesheto:pesheto69@34.151.233.27/Grupo1')
