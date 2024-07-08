@@ -51,6 +51,13 @@ app.get("/estadistica", (req, res) => {
     });
 });
 
+let datetimeFromDatabase = new Date('2024-07-06T13:30:00'); // Suponiendo que aquí obtienes la fecha y hora desde tu base de datos
+
+// Obtener solo la hora y minutos
+let horaMinutos = datetimeFromDatabase.getHours() + ':' + datetimeFromDatabase.getMinutes();
+
+console.log(horaMinutos);
+
 app.get("/about", (req,res)=>{
     res.render("about")
 })
