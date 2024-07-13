@@ -11,9 +11,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuración de la conexión a la base de datos MySQL
 const connection = mysql.createConnection({
-    host: 'localhost',  // Cambia a la dirección de tu servidor MySQL si es diferente
-    user: 'root',       // Nombre de usuario de MySQL
-    password: '',       // Contraseña de MySQL (deja en blanco si no tienes configurada una contraseña)
+    host: '34.151.233.27',  // Cambia a la dirección de tu servidor MySQL si es diferente
+    user: 'Pesheto',       // Nombre de usuario de MySQL
+    password: 'pesheto69',       // Contraseña de MySQL (deja en blanco si no tienes configurada una contraseña)
     database: 'conteo' // Nombre de tu base de datos
 });
 
