@@ -29,7 +29,7 @@ connection.connect(err => {
 // Ruta principal que muestra datos de la base de datos
 app.get("/", (req, res) => {
     // Consulta a la base de datos
-    connection.query('SELECT * FROM pronostico', (error, results, fields) => {
+    connection.query('SELECT * FROM car_counts', (error, results, fields) => {
         if (error) {
             console.error('Error al realizar la consulta: ', error.stack);
             return res.status(500).send('Error al obtener los datos de la base de datos');
@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
 
 app.get("/estadistica", (req, res) => {
     // Consulta a la base de datos
-    connection.query('SELECT * FROM pronostico', (error, results, fields) => {
+    connection.query('SELECT * FROM car_counts', (error, results, fields) => {
         if (error) {
             console.error('Error al realizar la consulta: ', error.stack);
             return res.status(500).send('Error al obtener los datos de la base de datos');
@@ -50,6 +50,9 @@ app.get("/estadistica", (req, res) => {
         res.render("estadistica", { conteo: results });
     });
 });
+
+
+
 
 let datetimeFromDatabase = new Date('2024-07-06T13:30:00'); // Suponiendo que aquí obtienes la fecha y hora desde tu base de datos
 
