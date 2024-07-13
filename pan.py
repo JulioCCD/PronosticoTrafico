@@ -86,10 +86,10 @@ if 'dia' in df.columns and 'hora' in df.columns:
 
     # Imprimir predicciones
     print("Predicciones del conjunto de entrenamiento:")
-    print(train_predict[:20])  # Muestra los primeros 20 resultados de las predicciones del conjunto de entrenamiento
+    print(train_predict[:100])  # Muestra los primeros 20 resultados de las predicciones del conjunto de entrenamiento
 
     print("Predicciones del conjunto de prueba:")
-    print(test_predict[:20])  # Muestra los primeros 20 resultados de las predicciones del conjunto de prueba
+    print(test_predict[:24])  # Muestra los primeros 20 resultados de las predicciones del conjunto de prueba
 
     # Graficar los resultados
     train_plot = np.empty_like(scaled_data)
