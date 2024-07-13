@@ -1,10 +1,10 @@
-import numpy as np
-import pandas as pd
-from sqlalchemy import create_engine
-from sklearn.preprocessing import MinMaxScaler
-from keras.models import Sequential, load_model
-from keras.layers import LSTM, Dense
-import matplotlib.pyplot as plt
+import numpy as np            #Biblioteca para operaciones numéricas y de álgebra lineal.
+import pandas as pd           #Biblioteca para la manipulación y análisis de datos estructurados.
+from sqlalchemy import create_engine   #Biblioteca para la conexión y manejo de bases de datos SQL.
+from sklearn.preprocessing import MinMaxScaler    #Herramienta para escalar/normalizar datos.
+from keras.models import Sequential, load_model  #Para la creación y carga de modelos secuenciales en Keras.
+from keras.layers import LSTM, Dense     #Capas de red neuronal para el modelo LSTM y densas.
+import matplotlib.pyplot as plt      #Biblioteca para la visualización de datos.
 
 # Conexión a la base de datos y carga de datos
 engine = create_engine('mysql+mysqldb://root:@localhost/conteo')
