@@ -14,7 +14,7 @@ const connection = mysql.createConnection({
     host: '34.151.233.27',  // Cambia a la dirección de tu servidor MySQL si es diferente
     user: 'Pesheto',       // Nombre de usuario de MySQL
     password: 'pesheto69',       // Contraseña de MySQL (deja en blanco si no tienes configurada una contraseña)
-    database: 'conteo' // Nombre de tu base de datos
+    database: 'Grupo1' // Nombre de tu base de datos
 });
 
 // Conectar a la base de datos MySQL
