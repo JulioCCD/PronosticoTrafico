@@ -71,7 +71,7 @@ app.get("/estadistica", (req,res)=>{
 })
 
 // Iniciar el servidor
-const PORT = process.env.PORT || 8093;
+const PORT = process.env.PORT || 8091;
 app.listen(PORT,"0.0.0.0", () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
